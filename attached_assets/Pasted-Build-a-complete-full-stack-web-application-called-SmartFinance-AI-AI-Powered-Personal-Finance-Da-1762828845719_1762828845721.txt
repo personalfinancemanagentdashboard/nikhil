@@ -1,0 +1,213 @@
+Build a complete full-stack web application called “SmartFinance.AI — AI-Powered Personal Finance Dashboard with Voice Assistant.”
+
+🎯 Goal
+
+Create a modern, secure, and interactive finance management platform that helps users track expenses, income, budgets, and goals, while using AI & voice interaction to make personal finance easier and smarter.
+
+🧱 Tech Stack
+
+Frontend: React + Tailwind CSS
+
+Backend: Flask (Python) or FastAPI
+
+Database: SQLite (local) or MongoDB Atlas (cloud)
+
+Charts: Chart.js or Recharts
+
+AI Assistant: OpenAI GPT API (via openai or langchain)
+
+Voice Assistant: Web Speech API (browser speech-to-text & text-to-speech)
+
+Hosting: Replit (for development) → Vercel/Render (for deployment)
+
+⚙️ Core Functional Requirements
+1. User Authentication
+
+Login/Signup with JWT or Flask-Session.
+
+Encrypt passwords with bcrypt.
+
+Optional: Google OAuth integration.
+
+2. Dashboard Overview
+
+Show cards for:
+
+Total Income
+
+Total Expenses
+
+Savings Balance
+
+Financial Health Score
+
+Display monthly insights & graphs (Bar/Pie/Line charts).
+
+3. Transaction Management
+
+Add, Edit, Delete transactions.
+
+Categorize: Food, Rent, Bills, Entertainment, Transport, etc.
+
+Auto-categorize using keywords (e.g., “Zomato” → Food).
+
+Import .csv (bank statement).
+
+4. Budget & Goal Management
+
+Set monthly budgets.
+
+Alert when 80% of a category’s budget is reached.
+
+Create savings goals (“Buy a laptop – ₹80,000”) with progress bars.
+
+5. AI Financial Assistant
+
+Chat interface connected to OpenAI GPT API.
+
+Query user data using natural language:
+
+“What was my highest expense last month?”
+
+“How much did I spend on food this year?”
+
+“Give me saving tips for this month.”
+
+Use backend endpoint /ai/query that fetches data from DB and prompts GPT.
+
+6. Voice Assistant
+
+Use Web Speech API for browser voice recognition & speech synthesis.
+
+Voice commands examples:
+
+“Add ₹500 expense for groceries.”
+
+“Show my savings for October.”
+
+“What is my top spending category?”
+
+Responses should be both shown in text and spoken aloud.
+
+7. AI Insights
+
+Generate insights using Python (pandas):
+
+“Your travel expenses increased by 20% this month.”
+
+“You saved ₹5,000 more than your 3-month average.”
+
+Automatically compute financial health score:
+
+score = (savings_ratio * 40) + (budget_adherence * 30) + (goal_progress * 30)
+
+8. Bill Reminders
+
+Users can add upcoming bills with due dates.
+
+Highlight in dashboard when due in <5 days.
+
+Optional: Email alert via SMTP.
+
+9. Reports
+
+Export reports as PDF or Excel.
+
+Filter by date, category, or amount.
+
+10. Dark/Light Mode
+
+Add a toggle for theme (store preference in local storage).
+
+🧠 Advanced & Bonus Features
+
+Smart Forecasting – Predict next month’s spending using regression on past data.
+
+Gamified Goals – Add badges like “Saved 3 months in a row!”
+
+Receipt OCR – Upload a receipt → extract text → auto-add expense (using pytesseract).
+
+Multi-language Voice Support – Allow Hindi/Telugu/English voice commands.
+
+Currency Conversion – Use an exchange-rate API for multi-currency users.
+
+Family Dashboard – Allow group/shared budgets with role-based access.
+
+📁 Project Structure
+SmartFinanceAI/
+├── backend/
+│   ├── app.py
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── transactions.py
+│   │   ├── insights.py
+│   │   └── ai_assistant.py
+│   ├── models.py
+│   ├── utils/
+│   │   ├── budget_logic.py
+│   │   ├── forecast.py
+│   │   └── insights_generator.py
+│   ├── requirements.txt
+│   └── .env  (OPENAI_API_KEY, DB_URL)
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Dashboard.js
+│   │   │   ├── Charts.js
+│   │   │   ├── VoiceAssistant.js
+│   │   │   ├── AiChat.js
+│   │   │   └── Goals.js
+│   │   ├── pages/
+│   │   ├── App.js
+│   │   ├── index.js
+│   └── package.json
+│
+├── README.md
+└── .replit
+
+💬 Key AI Assistant Behaviors
+
+Should remember user context (e.g., last month selected).
+
+Should use GPT’s reasoning to interpret vague queries:
+
+“How much did I save last quarter?” → summarize by month.
+
+Voice & text responses both visible in chat bubble.
+
+🧰 External Integrations
+
+OpenAI API (gpt-4-mini or gpt-4-turbo)
+
+MongoDB Atlas (cloud DB)
+
+Google Calendar API (optional, for bill reminders)
+
+Currency conversion API (optional)
+
+🧾 Deliverables
+
+Fully functional web app with:
+
+Secure auth
+
+Dashboard UI
+
+AI chat & voice assistant
+
+Insights & forecasting
+
+Reports & goals
+
+Include a README with setup steps and screenshots.
+
+🌟 Design Goals
+
+Minimal, clean UI (Tailwind + shadcn/ui)
+
+Smooth animations (Framer Motion)
+
+Responsive (desktop + mobile)
+
+Accessibility-friendly (voice, dark mode, readable fonts)
